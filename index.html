@@ -1,0 +1,76 @@
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css?family=Kenia&display=swap" rel="stylesheet">
+    <script src="./index.js"></script>
+    <link rel="stylesheet" href="./style.css" />
+</head>
+
+
+<body>
+    <div id="main">
+        <div class="app-header">
+            <span id="app-title"></span>
+            <button id="toggle-list">
+                <img src="/images/bars-solid.svg" alt="Menu-open" id="toggle-list-img">
+            </button>            
+        </div>
+
+        <div class="app-body">
+            <div class="search-criteria">
+                <button id="search-anime">Search for Anime</button>
+                <button id="search-manga">Search for Manga</button>
+            </div>
+            <form id="search-form">
+                <input id="search" placeholder="Search for a title" type="text" autocomplete="off" />
+                <input id="submitSearch" type="submit" value="Search!" />
+            </form>
+
+            <button id="clear-search-button">
+                Clear Search
+            </button>
+
+            <div id="pagination-holder">
+                <div id="pagination-content">
+                    <p id="display-number-text"></p>
+                    <p id="page-number"></p>
+                    <div id="pagination-button">
+                        <button id="prevBtn"><< Prev</button>
+                        <button id="nextBtn">Next >></button>
+                    </div>
+                </div>
+            </div>
+
+            <div id="search-results">
+            </div>
+
+            <div id="myList" class="hidden">
+                <div id="myList-header">
+                    <h1>My List!</h1>
+                    <button id="myList-closeBtn">
+                        <img src="/images/bars-solid.svg" alt="Menu-close" id="toggle-list-img">
+                    </button>
+                </div>
+                <ul id="myListItems">
+                </ul>
+                <div>
+                    <p>Look at all this stuff!</p>
+                </div>
+            </div>
+
+            <div id="notification" class="notification hidden">
+                <p id="notification-text"></p>
+            </div>
+
+            <button id="scrollBtn" title="Go to top">/\</button>
+
+        </div>
+
+        <div class="app-footer">
+            <p>Powered by <a href=https://docs.api.jikan.moe/ target="_blank">Jikan API v4.0.</a>
+        </div>
+</body>
+
+</html>
