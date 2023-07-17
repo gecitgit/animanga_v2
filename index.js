@@ -1,5 +1,4 @@
 document.addEventListener("DOMContentLoaded", () => {
-    console.log("the dom has loaded. we can begin.");
 
     // START OF GLOBAL VARIABLES
     const animeSearchToggle = document.getElementById('search-anime');
@@ -64,7 +63,6 @@ document.addEventListener("DOMContentLoaded", () => {
     toggleList.addEventListener('click', toggleListHandler);
 
     function toggleListHandler() {
-        console.log("toggle list button pressed");
         listDiv.classList.remove("hidden");
         toggleList.style.display = "none";
     }
@@ -82,7 +80,6 @@ document.addEventListener("DOMContentLoaded", () => {
     //handle which search category toggling
     animeSearchToggle.addEventListener('click', animeSearchHandler);
     function animeSearchHandler() {
-        console.log('anime search button pressed');
         mangaSearchToggle.classList.remove('active-search-toggle');
         mangaSearchToggle.classList.add('inactive-search-toggle');
 
@@ -92,7 +89,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     mangaSearchToggle.addEventListener('click', mangaSearchHandler);
     function mangaSearchHandler() {
-        console.log('manga search button pressed');
         animeSearchToggle.classList.remove('active-search-toggle');
         animeSearchToggle.classList.add('inactive-search-toggle');
 
@@ -111,14 +107,12 @@ document.addEventListener("DOMContentLoaded", () => {
         currentPage = 1;
 
         userQuery = event.target[0].value;
-        console.log('this is what the user typed into search: ', userQuery);
 
         if (animeSearchToggle.classList.contains('active-search-toggle')) {
             urlQuery = buildUrlQuery(userQuery, 'anime', currentPage, limit);
         } else if (mangaSearchToggle.classList.contains('active-search-toggle')) {
             urlQuery = buildUrlQuery(userQuery, 'manga', currentPage, limit);
         }
-        console.log("you searched for: ", urlQuery);
         handleQuery(urlQuery);
     }
     //end of form submission handling
@@ -132,7 +126,6 @@ document.addEventListener("DOMContentLoaded", () => {
     
     // START TO HANDLE REQUEST
     function handleQuery(urlQuery) {
-        console.log("handleQuery function called");
         fetch(urlQuery)
             .then(handleErrors)
             .then(processResponse)
@@ -144,7 +137,6 @@ document.addEventListener("DOMContentLoaded", () => {
     // START TO PROCESS RESPONSE
     // this function is responsible for taking the response from the request and creating an array of all of the results. Also responsible for triggering the resultsRenderer function AND the paginationRenderer function
     function processResponse(response) {
-        console.log("you have a response! Here it is: ", response);
         if (response.data.length === 0) {
             const searchErrorMsg = document.createElement('p');
             searchErrorMsg.classList.add('search-error-msg');
@@ -173,7 +165,6 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         });
 
-        console.log('this is what your dataResponseList looks like: ', dataResponseList);
         resultsRenderer(dataResponseList);
         paginationRenderer(paginationData);
     }
@@ -265,7 +256,6 @@ document.addEventListener("DOMContentLoaded", () => {
             addToListBttn.classList.add('add-to-list-bttn');
             addToListBttn.innerHTML = "Add to List";
             addToListBttn.addEventListener('click', () => {
-                console.log('add to list button pressed');
                 const myListLi = document.createElement('li');
                 myListLi.innerHTML = item.title;
                 myListLi.classList.add('my-list-item');
@@ -282,7 +272,6 @@ document.addEventListener("DOMContentLoaded", () => {
                 removeFromListBttn.classList.add('remove-from-list-bttn');
                 removeFromListBttn.innerHTML = "X";
                 removeFromListBttn.addEventListener('click', () => {
-                    console.log('remove from list button pressed');
                     myListLi.remove();
                 })
                 myListLi.appendChild(removeFromListBttn);
@@ -312,7 +301,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // START TO RENDER PAGINATION
     function paginationRenderer(paginationData) {
-        console.log('this is the data we received from pagination: ', paginationData);
 
         const firstItem = ((paginationData.current_page - 1) * limit) + 1;
         let lastItem = paginationData.current_page * limit;
@@ -349,7 +337,6 @@ document.addEventListener("DOMContentLoaded", () => {
     //this will add functionality to the nextButton
     nextBtn.addEventListener('click', nextBtnHandler);
     function nextBtnHandler() {
-        console.log('next button pressed')
         currentPage++;
         if (animeSearchToggle.classList.contains('active-search-toggle')) {
             urlQuery = buildUrlQuery(userQuery, 'anime', currentPage, limit);
@@ -362,7 +349,6 @@ document.addEventListener("DOMContentLoaded", () => {
     //this will add functionality to the previousButton
     prevBtn.addEventListener('click', prevBtnHandler);
     function prevBtnHandler() {
-        console.log('previous button pressed')
         currentPage--;
         if (animeSearchToggle.classList.contains('active-search-toggle')) {
             urlQuery = buildUrlQuery(userQuery, 'anime', currentPage, limit);
