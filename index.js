@@ -33,7 +33,7 @@ document.addEventListener("DOMContentLoaded", () => {
     window.onload = function() {
     
         function resizeTitle() {
-            if (window.innerWidth <= 600) { // You can adjust this size
+            if (window.innerWidth <= 600) {
                 appTitle.innerText = 'ASP';
             } else {
                 appTitle.innerText = 'Animanga Search Pal';
@@ -41,7 +41,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     
         window.onresize = resizeTitle;
-        resizeTitle(); // Call once at the start to set the initial title
+        resizeTitle();
     };
 
     resetFormBtn.addEventListener('click', resetFormHandler);
@@ -53,7 +53,6 @@ document.addEventListener("DOMContentLoaded", () => {
             const searchResetMsg = document.createElement('p');
             searchResetMsg.classList.add('search-reset-msg');
             searchResetMsg.textContent = 'Search cleared. Ready for a new search!';
-            // resultsHolder.textContent = searchResetMsg.textContent
             resultsHolder.textContent = '';
             resultsHolder.appendChild(searchResetMsg);
         }

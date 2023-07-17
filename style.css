@@ -122,14 +122,14 @@ a:active{
     height: 100%;
     padding: 20px;
     transform: translateX(0);
-    transition: transform 0.3s ease-in-out !important;
+    transition: transform 0.3s ease-in-out;
     width: clamp(275px, 55%, 500px);
-    border-left: 8px solid #cc59d4;
     outline: 4px solid white;
     z-index: 99999;
     background-image: url(./images/waves.svg);
     background-size: cover;
     background-repeat: no-repeat;
+    box-shadow: -20px -10px 20px 3px #cc59d471;
 }
 
 #myList-closeBtn {
@@ -179,7 +179,6 @@ a:active{
     justify-content: center;
     align-items: center;
     margin-bottom: 20px;
-    border-bottom: 1px solid orange;
     padding: 10px;
     font-weight: bold;
     font-size: 1.2em;
@@ -199,6 +198,7 @@ a:active{
     background-color: rgba(255, 255, 255, 0.250);
     border-radius: 12px;
     outline: 2px solid white;
+    min-height: 100px;
 }
 
 
@@ -545,8 +545,8 @@ a:active{
 #scrollBtn {
     display: none;
     position: fixed;
-    bottom: 20px;
-    right: 30px;
+    bottom: 60px;
+    right: 10px;
     z-index: 99;
     border: none;
     outline: none;
@@ -557,6 +557,7 @@ a:active{
     border-radius: 10px;
     opacity: 0.5;
     transition: opacity 0.3s;
+    border: 2px solid white;
 }
 #scrollBtn:hover {
     opacity: 1;
@@ -578,7 +579,7 @@ a:active{
         border-bottom: 2px solid white;
     }
     #app-title{
-        font-size: 6rem;
+        font-size: 5rem;
     }
     .notification {
         width: 85%;
@@ -587,9 +588,9 @@ a:active{
     
 
 
-@media (width < 950px) {
+@media (600px < width < 950px) {
     #app-title {
-        font-size: 4rem;
+        font-size: 3.5rem;
     }
     .notification {
         width: 75%;
@@ -597,6 +598,6 @@ a:active{
 }
 @media (width < 750px) {
     #app-title {
-        font-size: 3rem;
+        font-size: 2.5rem;
     }
 }
