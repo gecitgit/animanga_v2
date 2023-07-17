@@ -45,7 +45,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     resetFormBtn.addEventListener('click', resetFormHandler);
     function resetFormHandler() {
-        const text = "Press a button!\nEither OK or Cancel.";
+        const text = "You are trying to clear your search results!\nPlease confirm this decision.";
         if (confirm(text)) {
             formSearch.reset();
             paginationHolder.style.display = "none";
